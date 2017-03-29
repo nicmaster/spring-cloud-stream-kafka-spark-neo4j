@@ -30,7 +30,7 @@ A standalone jar can be created using maven. In the project root directory, in a
 
 ## Running from the jar
 
-    <pre><code>java -jar spark-java-streaming-0.1-all.jar</code></pre>
+    <pre><code>java -jar spring-cloud-stream-kafka-spark-.jar</code></pre>
     
 
 
