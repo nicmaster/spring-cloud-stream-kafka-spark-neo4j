@@ -1,9 +1,10 @@
-package stream.source;
+package com.analyzing.stream.source.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.messaging.support.MessageBuilder;
+import com.analyzing.stream.domain.TraceEvent;
 
 @EnableBinding(Source.class)
 public class EngineSource {
@@ -11,11 +12,11 @@ public class EngineSource {
     private Source source;
 
     @Autowired
-    public EngineSource(Source source){
+    public EngineSource(final Source source){
         this.source = source;
     }
 
-    public void sourceMessage(final String message) {
-        source.output().send(MessageBuilder.withPayload(message).build());
+    public void sourceEvent(final TraceEvent traceEvent) {
+        source.output().send(MessageBuilder.withPayload(traceEvent).build());
     }
 }

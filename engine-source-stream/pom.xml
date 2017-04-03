@@ -11,8 +11,13 @@
 
     <name>engine-source-stream</name>
     <description>source stream application</description>
+    <groupId>com.nicmaster.analytics.stream.engine</groupId>
     <artifactId>engine-source-stream</artifactId>
     <packaging>jar</packaging>
+
+    <properties>
+        <spring.boot.version>1.4.1.RELEASE</spring.boot.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -35,6 +40,15 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream</artifactId>
         </dependency>
@@ -42,15 +56,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-kafka</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.nicmaster.analytics.stream.engine</groupId>
+            <artifactId>engine-trace-message</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
-
-    <scm>
-        <connection>scm:git:git@github.com/nicmaster/spring-cloud-stream-kafka-spark-neo4j.git</connection>
-        <developerConnection>scm:git:ssh://github.com/nicmaster/spring-cloud-stream-kafka-spark-neo4j.git
-        </developerConnection>
-        <url>https://github.com/nicmaster/spring-cloud-stream-kafka-spark-neo4j</url>
-        <tag>HEAD</tag>
-    </scm>
 
     <build>
         <resources>
@@ -70,14 +81,6 @@
                 <artifactId>maven-deploy-plugin</artifactId>
                 <configuration>
                     <skip>true</skip>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-plugin</artifactId>
-                <version>1.9.4</version>
-                <configuration>
-                    <connectionType>developerConnection</connectionType>
                 </configuration>
             </plugin>
 

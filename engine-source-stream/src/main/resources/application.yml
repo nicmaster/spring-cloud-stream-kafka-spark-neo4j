@@ -1,0 +1,14 @@
+server:
+  port: 9095
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: engine-source
+        database:
+          destination: engine-source-channel
+      kafka:
+        binder:
+          zkNodes: kafka
+          brokers: kafka

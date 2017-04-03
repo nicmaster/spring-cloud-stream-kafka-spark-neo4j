@@ -1,0 +1,14 @@
+health.config.enabled: false
+
+spring:
+  application:
+    name: ${project.artifactId}
+  cloud:
+    consul:
+      enabled: false
+    config:
+      enabled: false
+      discovery:
+        enabled: false
+    bus:
+      enabled: false
